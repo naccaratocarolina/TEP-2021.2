@@ -34,7 +34,7 @@ void empilha (char c) {
  * @return caractere removido da pilha.
  */
 char desempilha (void) {
-  return pilha[t--];
+  return pilha[--t];
 }
 
 /*
@@ -102,10 +102,24 @@ int stringBemFormada (char s[]) {
     }
   }
 
-  return pilhaVazia();
+  return 1;
 }
 
 int main (int argc, char *argv[]) {
-  stringBemFormada("([])");
+  int n; // quantidade de linhas a serem lidas
+ 
+  // Le a quantidade de linhas
+  scanf("%d", &n);
+  getc(stdin);
+
+  // Le as demais linhas do arquivo de entrada
+  while (n--) {
+    char tmp[MAX_LENGHT]={0x0};
+    fgets(tmp, sizeof(tmp), stdin);
+
+    if (!stringBemFormada(tmp)) printf("No\n");
+    else printf("Yes\n");
+    }
+
   return 0;
 }
