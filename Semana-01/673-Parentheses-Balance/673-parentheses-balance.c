@@ -47,15 +47,6 @@ int pilhaVazia (void) {
 }
 
 /*
- * Verifica se a pilha esta cheia.
- *
- * @return 1 se a pilha estiver cheia, 0 c.c.
- */
-int pilhaCheia (void) {
-  return t == MAX_LENGHT;
-}
-
-/*
  * Verifica se a sequencia esta bem formada.
  *
  * @return 1 se a pilha estiver vazia, 0 c.c.
@@ -65,44 +56,28 @@ int stringBemFormada (char s[]) {
   inicializaPilha();
 
   // Percorre a string de entrada
-  for (int i=0; s[i]!='\0'; ++i) {
+  for (int i=0; s[i]!='\n'; ++i) {
     char c;
 
     switch (s[i]) {
-      // Caso 1: Fecha parenteses
       case ')':
-        // Se a pilha estiver vazia, nao pode haver ')'
-        if (pilhaVazia()) return 0; 
-        
-        // Se a pilha nao estiver vazia e encontrarmos um
-        // ')', significa que o elemento na head da pilha
-        // deve ser '('. Se nao for, a string nao esta bem
-        // formada
+        if (pilhaVazia()) return 0;
         c = desempilha();
         if (c != '(') return 0;
         break;
-
-      // Caso 2: Fecha colchetes
+      
       case ']':
-        // Se a pilha estiver vazia, nao pode haver ']'
         if (pilhaVazia()) return 0;
-
-        // Se a pilha nao estiver vazia e encontrarmos um
-        // ']', significa que o elemento na head da pilha
-        // deve ser '['. Se nao for, a string nao esta bem
-        // formada
         c = desempilha();
         if (c != '[') return 0;
         break;
 
-      // Se nao encontrarmos ')' e ']' na posicao s[i],
-      // significa que temos que empilhar esse caractere
       default:
         empilha(s[i]);
     }
   }
 
-  return 1;
+  return pilhaVazia();
 }
 
 int main (int argc, char *argv[]) {
@@ -118,8 +93,10 @@ int main (int argc, char *argv[]) {
     fgets(tmp, sizeof(tmp), stdin);
 
     if (!stringBemFormada(tmp)) printf("No\n");
-    else printf("Yes\n");
-    }
+    else printf("Yes\n");  
+  }
+
+  printf("\n");
 
   return 0;
 }
