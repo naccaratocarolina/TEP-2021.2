@@ -56,7 +56,7 @@ int stringBemFormada (char s[]) {
   inicializaPilha();
 
   // Percorre a string de entrada
-  for (int i=0; s[i]!='\n'; ++i) {
+  for (int i=0; s[i] != '\n'; ++i) {
     char c;
 
     switch (s[i]) {
@@ -95,8 +95,6 @@ int main (int argc, char *argv[]) {
     if (!stringBemFormada(tmp)) printf("No\n");
     else printf("Yes\n");  
   }
-
-  printf("\n");
 
   return 0;
 }
