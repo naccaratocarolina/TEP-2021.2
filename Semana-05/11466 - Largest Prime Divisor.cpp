@@ -27,7 +27,7 @@ void geraPrimo () {
     }
 }
 
-void solve (long long n) {
+void calcula (long long n) {
     int i, cnt = 0;
     long long pre = n, ans = -1;
 
@@ -60,7 +60,7 @@ int main () {
             puts("-1");
         
         else
-            solve(n);
+            calcula(n);
     }
 
     return 0;
