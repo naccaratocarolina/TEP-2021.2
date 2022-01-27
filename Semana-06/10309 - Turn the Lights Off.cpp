@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stritc.h>
+#include <string.h>
 
 char grid[10][10];
 int tc[10][10];
