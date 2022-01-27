@@ -18,9 +18,9 @@ int dfs (int k) {
 
 	int jogadas = 8;
 	for (int i = 0; i < 8; ++i) {
-		if (!marca(i, k)) {
-			colunas[k] = i;
-			jogadas = min(jogadas, visitado[k] == i ? dfs(k + 1) : (dfs(k + 1)) + 1);
+    if (!marca(i, k)) {
+      colunas[k] = i;
+      jogadas = min(jogadas, visitado[k] == i ? dfs(k + 1) : (dfs(k + 1)) + 1);
 		}
 	}
 
@@ -33,14 +33,13 @@ int main (void) {
 
 	int caso = 0;
 	while (cin >> visitado[0]) {
-		colunas[0] = --visitado[0];
+    colunas[0] = --visitado[0];
 		
     for (int i = 1; i < 8; ++i) {
-			cin >> visitado[i];
-			
-			colunas[i] = --visitado[i];
+      cin >> visitado[i];
+      colunas[i] = --visitado[i];
 		}
-	  
+
     printf("Case %d: %d\n", ++caso, dfs(0));
 	}
 
