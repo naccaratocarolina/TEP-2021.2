@@ -18,7 +18,7 @@ int calculaCombustivel (int altitude, int distancia) {
 
   if (m[altitude][distancia] != -1) return m[altitude][distancia];
   
-  return min(
+  return m[altitude][distancia] = min(
       60 - w[altitude][distancia] + calculaCombustivel(altitude + 1, distancia + 1), 
       min(30 - w[altitude][distancia] + calculaCombustivel(altitude, distancia + 1), 
       20 - w[altitude][distancia] + calculaCombustivel(altitude - 1, distancia + 1)));
