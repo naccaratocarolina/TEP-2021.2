@@ -3,12 +3,12 @@
 using namespace std;
 
 int main (void) {
-  int N, aposta, i;
+  int N, aposta;
 
   while (scanf("%d", &N), N) {
     int seqMaxima = 0, ganho = 0;
 
-    for (i=0; i<N; i++) {
+    for (int i=0; i<N; i++) {
       scanf("%d", &aposta);
       
       ganho += aposta;
@@ -17,7 +17,7 @@ int main (void) {
       if (ganho > seqMaxima) seqMaxima = ganho;
     }
 
-    if (ganho) printf("The maximum winning streak is %d.\n", ganho);
+    if (seqMaxima) printf("The maximum winning streak is %d.\n", seqMaxima);
     else printf("Losing streak.\n");
   }
 
