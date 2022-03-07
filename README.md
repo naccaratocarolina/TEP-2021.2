@@ -5,7 +5,7 @@
 - [x] Lista 3
 - [x] Lista 4
 - [x] Lista 5
-- [ ] Lista 6
-- [ ] Lista 7
-- [ ] Lista 8
-- [ ] Lista 9
+- [x] Lista 6
+- [x] Lista 7
+- [x] Lista 8
+- [x] Lista 9
